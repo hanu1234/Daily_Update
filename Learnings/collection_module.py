@@ -3,7 +3,7 @@ python collection module is use to improve the functionality of the built-in col
 python built in collection containers are.
 1. list
 2. tuple
-3. dect
+3. dict
 4. set
 
 Below are the collection module.
