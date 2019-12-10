@@ -28,8 +28,20 @@ print(cnt)                         # the list value becomes keys and it count be
 
 print(cnt[1])                      # accessing counter items with its key value  o/p 2
 
+"""
+counter had three editional features
+1. elements()()
+2. most_common()
+3. subtract([iterable of mapping])
+"""
+
 m = list(cnt.elements())           # cnt.elements() will return the iterator object apply list to get the elements
 print(m)                           # it will list all the elements o/p [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 6]
 
 n = cnt.most_common()              # it will return list of tuple of most common elements and its count
 print(n)                           # o/p [(3, 4), (2, 3), (1, 2), (4, 2), (5, 1), (6, 1)]
+
+
+deduct = {1:2, 2:2}
+cnt.subtract(deduct)              # it will subtract the count of the key value using the mapping dictionary.
+print(cnt)                        # and update the same cnt object o/p Counter({3: 4, 4: 2, 2: 1, 5: 1, 6: 1, 1: 0})
