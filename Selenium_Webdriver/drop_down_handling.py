@@ -1,5 +1,5 @@
 """
-If we want select from the list of available options from the drop down selenium API provides the Select class
+If we want select from the list of available options from the drop down, selenium API provides the Select class
 there are two selection options in the drop down.
 1. single select option
 2. multi-select options
