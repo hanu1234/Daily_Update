@@ -13,7 +13,7 @@ commands to install packages
   sdkmanager "system-images;android-26;google_apis;x86_64"   
   sdkmanager "platform-tools" "platforms;android-26"         # To install the latest platform tools and the SDK tools for API level 28
 ```
-- Add the system variable
+- Add the system variable(envirnomental variable in windows)
   - ANDROID_HOME   C:\Users\hshivanagi\Downloads\sdk-tools
 
 **avdmanger commands to create the avd**
