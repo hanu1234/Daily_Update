@@ -13,4 +13,18 @@ commands to install packages
   sdkmanager "system-images;android-26;google_apis;x86_64"   
   sdkmanager "platform-tools" "platforms;android-26"         # To install the latest platform tools and the SDK tools for API level 28
 ```
+- Add the system variable
+  - ANDROID_HOME   C:\Users\hshivanagi\Downloads\sdk-tools
 
+**avdmanger commands to create the avd**
+- avdmanger located in bin folder of sdk_tools
+```
+avdmanager.bat list avd
+avdmanager -v create avd -n  test -k "system-images;android-26;google_apis;x86_64" -g "google_apis"
+```
+
+**start the emulator**
+- emulator.exe located in tools folder
+```
+emulator.exe -avd test
+```
