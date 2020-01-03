@@ -1,9 +1,9 @@
 **Procedure to create the andriod virtual device using command line** 
-> download command line tool from below link.>
-      https://developer.android.com/studio
-> From downloaded folder go to the below path
+- download command line tool from below link.>
+      * https://developer.android.com/studio
+- From downloaded folder go to the below path
   		C:\Users\hshivanagi\Downloads\sdk-tools\tools\bin
-SDK--> software development kit. The sdkmanager is a command line tool that allows you to view, install, update, and uninstall packages for the Android SDK.
+- SDK--> software development kit. The sdkmanager is a command line tool that allows you to view, install, update, and uninstall packages for the Android SDK.
 
 commands to install packages
 ```
