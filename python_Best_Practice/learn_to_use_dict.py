@@ -1,5 +1,5 @@
 """
-In python dictionary is a unordere set of key value pair
+In python dictionary is a unordered set of key value pair
 """
 
 #  Let’s say you use many if/else clauses in your code
