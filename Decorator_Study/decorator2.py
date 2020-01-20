@@ -16,6 +16,7 @@ def wish(name):
 
 wish("Durga")
 wish('Sunny')
+dd
 
 # without decorator "decorfunction = decor(wish)"
 
