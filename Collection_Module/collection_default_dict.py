@@ -20,6 +20,7 @@ from collections import defaultdict
 def defaultvalue():
     return 0
 
+
 otherdict = defaultdict(defaultvalue)
 otherdict['a'] = 1
 otherdict['d']
