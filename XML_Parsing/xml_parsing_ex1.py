@@ -37,7 +37,7 @@ for x in root[msm_index]:
 
 
 tree.write('Open_Auth2.xml', default_namespace='xmlns')
-
+print("Hanamant Testing")
 
 def modify_xml(ssid):
     for x in root:
