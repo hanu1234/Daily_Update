@@ -3,3 +3,4 @@
 .idea/Daily_Update.iml
 *.xml
 *.xml
+/venv/
