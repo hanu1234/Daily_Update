@@ -1,6 +1,7 @@
 import imaplib
 import email
 import re
+import os
 
 
 class GmailNotification:
@@ -80,8 +81,29 @@ class GmailNotification:
             url = re.search("(?P<url>https?://[^\s]+)", mail_body.decode()).group("url")
             return url
 
+    def download_gmail_attachments(self, email, password):
+        """
+
+        :param email_msg:
+        :return:
+        """
+        mail_subject, mail_body = self.get_gmail_message_body(email, password)
+        for part in mail_subject.walk():
+            if part.get_content_maintype() == 'multipart':
+                continue
+            if part.get('Content-Disposition') is None:
+                continue
+            fileName = part.get_filename()
+            if bool(fileName):
+                filePath = os.path.join('C:\\Daily_Update\\GMAIL_MESSAGE_HANDLING\\', fileName)
+                if not os.path.isfile(filePath):
+                    fp = open(filePath, 'wb')
+                    fp.write(part.get_payload(decode=True))
+                    fp.close()
+
 
 if __name__ == "__main__":
     obj = GmailNotification()
-    obj.get_setup_password_link("cloud1tenant1@gmail.com", "Symbol@123")
+    #obj.get_setup_password_link("cloud1tenant1@gmail.com", "Symbol@123")
+    obj.download_gmail_attachments("cloud1tenant1@gmail.com", "Symbol@123")
 
