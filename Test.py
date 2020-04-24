@@ -1,12 +1,21 @@
-d1 = {4:5, 'a': "apple", 'b': "ball", 1:2, 3:4}
-print(d1)
-print(d1)
-print(d1)
-print(d1)
-print(d1)
+class Test:
+    def __init__(self):
+        pass
 
-print("Feature 2 changes")
-print("Feature 2 Change1")
-print("Feature 2 change2")
-print("Feature 2 change3")
-print("Hanamant master changes")
+    def m1(self):
+        print('m1')
+
+    def m2(self):
+        print('m1')
+
+    def m3(self):
+        print('m1')
+
+    def m4(self):
+        test = {'a':self.m1,
+                'b':self.m2
+                }
+        test['a']()
+
+obj = Test()
+obj.m4()
