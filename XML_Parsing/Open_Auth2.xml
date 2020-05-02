@@ -1,0 +1,28 @@
+<ns1:WLANProfile xmlns="xmlns" xmlns:ns1="http://www.microsoft.com/networking/WLAN/profile/v1" xmlns:ns2="http://www.microsoft.com/networking/WLAN/profile/v3">
+	<ns1:name>PPSK_HS_DEMO3</ns1:name>
+	<ns1:SSIDConfig>
+		<ns1:SSID>
+			<ns1:hex>113527832837263</ns1:hex>
+			<ns1:name>Testing</ns1:name>
+		</ns1:SSID>
+	</ns1:SSIDConfig>
+	<ns1:connectionType>ESS</ns1:connectionType>
+	<ns1:connectionMode>auto</ns1:connectionMode>
+	<ns1:MSM>
+		<ns1:security>
+			<ns1:authEncryption>
+				<ns1:authentication>WPA2PSK</ns1:authentication>
+				<ns1:encryption>AES</ns1:encryption>
+				<ns1:useOneX>false</ns1:useOneX>
+			</ns1:authEncryption>
+			<ns1:sharedKey>
+				<ns1:keyType>passPhrase</ns1:keyType>
+				<ns1:protected>false</ns1:protected>
+				<ns1:keyMaterial>5050534b5f48535f44454d4f</ns1:keyMaterial>
+			</ns1:sharedKey>
+		</ns1:security>
+	</ns1:MSM>
+	<ns2:MacRandomization>
+		<ns2:enableRandomization>false</ns2:enableRandomization>
+	</ns2:MacRandomization>
+</ns1:WLANProfile>

@@ -1,0 +1,23 @@
+<ns1:WLANProfile xmlns="xmlns" xmlns:ns1="http://www.microsoft.com/networking/WLAN/profile/v1" xmlns:ns2="http://www.microsoft.com/networking/WLAN/profile/v3">
+	<ns1:name>GuestAuto_HS1</ns1:name>
+	<ns1:SSIDConfig>
+		<ns1:SSID>
+			<ns1:hex>4175746F4775657374556E736563757265</ns1:hex>
+			<ns1:name>GuestAuto_HS1</ns1:name>
+		</ns1:SSID>
+	</ns1:SSIDConfig>
+	<ns1:connectionType>ESS</ns1:connectionType>
+	<ns1:connectionMode>manual</ns1:connectionMode>
+	<ns1:MSM>
+		<ns1:security>
+			<ns1:authEncryption>
+				<ns1:authentication>open</ns1:authentication>
+				<ns1:encryption>none</ns1:encryption>
+				<ns1:useOneX>false</ns1:useOneX>
+			</ns1:authEncryption>
+		</ns1:security>
+	</ns1:MSM>
+	<ns2:MacRandomization>
+		<ns2:enableRandomization>false</ns2:enableRandomization>
+	</ns2:MacRandomization>
+</ns1:WLANProfile>
