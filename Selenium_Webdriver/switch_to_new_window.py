@@ -29,6 +29,7 @@ class SwitchWindow(object):
         self.driver.get(self.url)                                 # opening the page
         sleep(2)
         self.driver.maximize_window()                             # maximizing the chrome window
+        self.driver.implicitly_wait(10)
         self.home_window = self.driver.current_window_handle
 
     def switch_window(self):
@@ -54,6 +55,7 @@ class SwitchWindow(object):
 
     def teardown(self):
         self.driver.quit()  # close all the opened windows
+
 
 if __name__ == "__main__":
     obj = SwitchWindow()
