@@ -1,0 +1,81 @@
+•Installing
+	○ apt-get update
+	○ apt-get install freeradius
+
+•Configuration
+	>>>vi /etc/freeradius/3.0/clients.conf
+	client 10.234.106.0/24 {
+	       secret          = Secret@123
+	}
+
+	>>vi /etc/freeradius/3.0/users
+	symbol Cleartext-Password := "Extreme@123"
+	ahuser Cleartext-Password := "Extreme@123"
+
+•Test your radius server configuration file
+	>> freeradius -CX
+
+•Start the radius server
+extreme@extreme:/etc/freeradius/3.0$ sudo service freeradius stop
+extreme@extreme:/etc/freeradius/3.0$ sudo service freeradius start
+extreme@extreme:/etc/freeradius/3.0$ sudo service freeradius status
+
+●freeradius.service - FreeRADIUS multi-protocol policy server
+   Loaded: loaded (/lib/systemd/system/freeradius.service; disabled; vendor preset: enabled)
+   Active: active (running) since Wed 2020-03-25 08:53:35 IST; 4s ago
+     Docs: man:radiusd(8)
+           man:radiusd.conf(5)
+           http://wiki.freeradius.org/
+           http://networkradius.com/doc/
+  Process: 7722 ExecStart=/usr/sbin/freeradius $FREERADIUS_OPTIONS (code=exited, status=0/SUCCESS)
+  Process: 7720 ExecStartPre=/usr/sbin/freeradius $FREERADIUS_OPTIONS -Cxm -lstdout (code=exited, status=0/SUCCESS)
+ Main PID: 7724 (freeradius)
+    Tasks: 6 (limit: 4915)
+   CGroup: /system.slice/freeradius.service
+           └─7724 /usr/sbin/freeradius
+
+Mar 25 08:53:34 extreme freeradius[7720]: rlm_mschap (mschap): using internal authentication
+Mar 25 08:53:34 extreme freeradius[7720]: rlm_cache (cache_eap): Driver rlm_cache_rbtree (module rlm_cache_rbtree) loaded and linked
+Mar 25 08:53:34 extreme freeradius[7720]: tls: Using cached TLS configuration from previous invocation
+Mar 25 08:53:34 extreme freeradius[7720]: tls: Using cached TLS configuration from previous invocation
+Mar 25 08:53:34 extreme freeradius[7720]: Ignoring "sql" (see raddb/mods-available/README.rst)
+Mar 25 08:53:34 extreme freeradius[7720]: Ignoring "ldap" (see raddb/mods-available/README.rst)
+Mar 25 08:53:34 extreme freeradius[7720]:  # Skipping contents of 'if' as it is always 'false' -- /etc/freeradius/3.0/sites-enabled/inner-tunnel:331
+Mar 25 08:53:34 extreme freeradius[7720]: radiusd: #### Skipping IP addresses and Ports ####
+Mar 25 08:53:34 extreme freeradius[7720]: Configuration appears to be OK
+Mar 25 08:53:35 extreme systemd[1]: Started FreeRADIUS multi-protocol policy server.
+
+
+•To check the logs
+extreme@extreme:/etc/freeradius/3.0$ tail -f /var/log/freeradius/radius.log
+Wed Mar 25 08:53:34 2020 : Info: Debugger not attached
+Wed Mar 25 08:53:34 2020 : Warning: [/etc/freeradius/3.0/mods-config/attr_filter/access_reject]:11 Check item "FreeRADIUS-Response-Delay"       found in filter list for realm "DEFAULT".
+Wed Mar 25 08:53:34 2020 : Warning: [/etc/freeradius/3.0/mods-config/attr_filter/access_reject]:11 Check item "FreeRADIUS-Response-Delay-USec"  found in filter list for realm "DEFAULT".
+Wed Mar 25 08:53:34 2020 : Info: Loaded virtual server <default>
+Wed Mar 25 08:53:34 2020 : Warning: Ignoring "sql" (see raddb/mods-available/README.rst)
+Wed Mar 25 08:53:34 2020 : Warning: Ignoring "ldap" (see raddb/mods-available/README.rst)
+Wed Mar 25 08:53:34 2020 : Info: Loaded virtual server default
+Wed Mar 25 08:53:34 2020 : Info:  # Skipping contents of 'if' as it is always 'false' -- /etc/freeradius/3.0/sites-enabled/inner-tunnel:331
+Wed Mar 25 08:53:34 2020 : Info: Loaded virtual server inner-tunnel
+Wed Mar 25 08:53:35 2020 : Info: Ready to process requests
+
+Issue1:
+	root@symbol-HP-EliteBook-8440p:~# tail -f /var/log/freeradius/radius.log
+	Wed Mar 25 08:12:01 2020 : Error: Failed binding to authentication address * port 1812: Address already in use
+	Wed Mar 25 08:12:01 2020 : Error: /etc/freeradius/radiusd.conf[240]: Error binding to port for 0.0.0.0 port 1812
+	Wed Mar 25 08:15:25 2020 : Info: Loaded virtual server inner-tunnel
+	Wed Mar 25 08:15:25 2020 : Info: Loaded virtual server <default>
+	Wed Mar 25 08:15:25 2020 : Error: Failed binding to authentication address * port 1812: Address already in use
+	Wed Mar 25 08:15:25 2020 : Error: /etc/freeradius/radiusd.conf[240]: Error binding to port for 0.0.0.0 port 1812
+	Wed Mar 25 08:15:36 2020 : Info: Loaded virtual server inner-tunnel
+	Wed Mar 25 08:15:36 2020 : Info: Loaded virtual server <default>
+	Wed Mar 25 08:15:36 2020 : Error: Failed binding to authentication address * port 1812: Address already in use
+	Wed Mar 25 08:15:36 2020 : Error: /etc/freeradius/radiusd.conf[240]: Error binding to port for 0.0.0.0 port 1812
+
+Solution:  Check the radius server already running or not , if it is running kill and restart the service
+root@symbol-HP-EliteBook-8440p:~# ps ax | grep radius
+13023 ?        S      0:00 freeradius -X
+22362 pts/2    S+     0:00 grep --color=auto radius
+root@symbol-HP-EliteBook-8440p:~#
+root@symbol-HP-EliteBook-8440p:~#
+root@symbol-HP-EliteBook-8440p:~# kill -9 13023
