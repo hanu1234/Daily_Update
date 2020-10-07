@@ -11,7 +11,6 @@ class LiveGainers(object):
         pd.set_option('display.max_columns', None)
         df_list = pd.read_html(response)
         df = df_list[0]
-        print(df.columns)
         live_data = {'company_names': [], 'High': [], 'Low': [], 'Gain': [], 'Last_Price': [], 'Prev_Close': []}
 
         company_name = df['Company Name'][0::7]
@@ -34,7 +33,7 @@ class LiveGainers(object):
             live_data['Prev_Close'].append(close)
 
         df = pd.DataFrame(live_data)
-        print(df)
+        return df
 
 
 if __name__ == "__main__":

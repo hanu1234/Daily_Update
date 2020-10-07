@@ -21,7 +21,7 @@ class NseTrend(object):
                     nifty_trend['Change'] = column[2].text
                     nifty_trend['%Chg'] = column[3].text
                     break
-        print(nifty_trend)
+        return nifty_trend
 
 
 if __name__ == "__main__":
