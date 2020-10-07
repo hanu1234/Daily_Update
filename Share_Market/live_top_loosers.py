@@ -34,7 +34,7 @@ class LiveLoosers(object):
             live_data['Prev_Close'].append(close)
 
         df = pd.DataFrame(live_data)
-        print(df)
+        return df
 
 
 if __name__ == "__main__":
