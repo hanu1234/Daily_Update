@@ -1,0 +1,42 @@
+Starting Remote Server On Windows MU:
+-------------------------------------
+Step 1: Install the python38 and set the python environmental variables
+        add python installation directory, <python-installation-dir>\Scripts to environment variabes
+
+Step 2: Install the below packages:
+        python -m pip install image
+        python -m pip install selenium
+        python -m pip install sauceclient
+        python -m pip install robotframework
+        python -m pip install robotremoteserver
+
+step 3: Clone the git@github.extremenetworks.com:Engineering/extauto.git repository to C:/ directory
+        OR download the zip, extract to C:\
+
+step 4: add the c:\extauto as PYTHONPATH-->c:\extauto  in system variable
+
+Step 5: go to C:\extauto\common\tools\remote and run the following command
+        python RFTestClient.py 0.0.0.0 8270
+
+
+Start the stand alone selenium server:
+-------------------------------------
+Step 1: Open another CMD prompt in Administrative mode
+        Go to the C:\extauto\common\tools\remote\seleniumconfig amd run the following command.
+        Note: Need to install java before running this command
+        java -jar selenium-server-standalone.jar
+
+		C:\extauto\common\tools\remote\seleniumconfig>java -jar selenium-server-standalone.jar
+        16:29:17.453 INFO [GridLauncherV3.parse] - Selenium server version: 3.141.59, revision: e82be7d358
+        16:29:17.531 INFO [GridLauncherV3.lambda$buildLaunchers$3] - Launching a standalone Selenium Server on port 4444
+        2020-04-16 16:29:17.578:INFO::main: Logging initialized @363ms to org.seleniumhq.jetty9.util.log.StdErrLog
+        16:29:17.812 INFO [WebDriverServlet.<init>] - Initialising WebDriverServlet
+        16:29:18.093 INFO [SeleniumServer.boot] - Selenium Server is up and running on port 4444
+
+Webdriver Configuration:
+------------------------
+        Download and keep chromedriver.exe file in following folder
+        URL: https://sites.google.com/a/chromium.org/chromedriver/downloads
+
+        C:\extauto\common\tools\remote\seleniumconfig
+
