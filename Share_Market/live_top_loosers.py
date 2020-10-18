@@ -11,7 +11,6 @@ class LiveLoosers(object):
         pd.set_option('display.max_columns', None)
         df_list = pd.read_html(response)
         df = df_list[0]
-        print(df.columns)
         live_data = {'company_names': [], 'High': [], 'Low': [], 'Loss': [], 'Last_Price': [], 'Prev_Close': []}
 
         company_name = df['Company Name'][0::7]
